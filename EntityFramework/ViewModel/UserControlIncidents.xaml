@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="EntityFramework.UserControlIncidents"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntityFramework"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800"
+             Name="UserControlIncident">
+   
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Карточка инцидента" Command="{Binding OpenEditItemWnd}"/>
+                <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <StackPanel >
+        <ListView x:Name="ViewAllIncident" 
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Center"
+                 
+                  ItemsSource="{Binding AllIncident}"
+                  SelectedItem="{Binding SelectIncident}"
+                 
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="110" Header="Статус" DisplayMemberBinding="{Binding Path=Stat}"/>
+                    <GridViewColumn Width="110" Header="Время" DisplayMemberBinding="{Binding Path=Time}"/>
+                    <GridViewColumn Width="170" Header="Уровень угрозы"  DisplayMemberBinding="{Binding Path=Lvl}"/>
+                    <GridViewColumn Width="170" Header="Тип Инцидента"  DisplayMemberBinding="{Binding Path=Type}"/>
+                    <GridViewColumn Width="170" Header="Имя Инцидента"  DisplayMemberBinding="{Binding Path=Name}"/>
+                    <!--<GridViewColumn Width="160" Header="Описание" DisplayMemberBinding="{Binding Path=Op}"/>
+                    <GridViewColumn  Header="Рекомендации" DisplayMemberBinding="{Binding Path=Rec}"/>-->
+                    
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        </StackPanel>
+
+
+        <!--<DataGrid ItemsSource="{Binding AllIncident}" Name="Tabl" AutoGenerateColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Уровень угрозы"/>
+                <DataGridTextColumn Header="Тип"/>
+                <DataGridTextColumn Header="Название"/>
+                <DataGridTextColumn Header="Описание"/>
+                <DataGridTextColumn Header="Рекомендации"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+    </Grid>
+</UserControl>

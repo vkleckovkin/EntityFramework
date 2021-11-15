@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="EntityFramework.UserControlNewIncident"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntityFramework"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Name="AddNewIncidentWnd">
+             
+    
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Height="200">
+            <TextBlock Text="Уровень угрозы"/>
+            <ComboBox SelectedItem="{Binding IncidentLvl}" Text="{Binding IncidentLvl}">
+                <TextBlock>Низкий</TextBlock>
+                <TextBlock>Средний</TextBlock>
+                <TextBlock>Высокий</TextBlock>
+                <TextBlock>Критический</TextBlock>
+            </ComboBox>
+            
+            <TextBlock Text="Тип инцидента"/>
+            <TextBox x:Name="TypeBlock" Text="{Binding IncidentType}"/>
+            
+            <TextBlock Text="Имя инцидента"/>
+            <TextBox x:Name="NameBlock" Text="{Binding IncidentName}"/>
+            
+            <TextBlock Text="Описание инцидента"/>
+            <TextBox x:Name="OpBlock" Text="{Binding IncidentOp}"/>
+            
+            <TextBlock Text="Рекомендации по устранению инцидента"/>
+            <TextBox x:Name="RecBlock" Text="{Binding IncidentRec}"/>
+
+        </StackPanel>-->
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Уровень угрозы"/>
+            <ComboBox SelectedItem="{Binding IncidentLvl}" Text="{Binding IncidentLvl}">
+                <TextBlock>Низкий</TextBlock>
+                <TextBlock>Средний</TextBlock>
+                <TextBlock>Высокий</TextBlock>
+                <TextBlock>Критический</TextBlock>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Статус инцидента"/>
+            <ComboBox SelectedItem="{Binding IncidentStat}" Text="{Binding IncidentStat}">
+                <TextBlock>В работе</TextBlock>
+                <TextBlock>Закрыт</TextBlock>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Тип инцидента"/>
+            <TextBox x:Name="TypeBlock" Width="auto" Height="auto" Text="{Binding IncidentType}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Время инцидента"/>
+            <TextBox x:Name="TimeBlock" Width="auto" Height="auto" Text="{Binding IncidentTime}"/>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Calibri" FontSize="20" Text="Имя инцидента"/>
+            <TextBox x:Name="NameBlock" Width="auto" Height="auto" Text="{Binding IncidentName}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Calibri" FontSize="20" Text="Описание"/>
+            <TextBox x:Name="OpBlock" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Width="auto" Height="auto" Text="{Binding IncidentOp}"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Calibri" FontSize="20" Text="Рекомендации"/>
+            <TextBox x:Name="RecBlock" TextWrapping="Wrap" Width="500" Height="auto" VerticalScrollBarVisibility="Auto" Text="{Binding IncidentRec}"/>
+        </StackPanel>
+
+        <Button  VerticalAlignment="Bottom" Grid.ColumnSpan="4" Grid.Row="4" Content="Добавить инцидент" 
+                 Command="{Binding AddNewIncident}"
+                 CommandParameter="{Binding ElementName=AddNewIncidentWnd}"/>
+    </Grid>
+</UserControl>
